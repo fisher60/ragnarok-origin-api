@@ -15,6 +15,6 @@ async def root():
 class Path(BaseModel):
     path: list[int]
 
-@app.get("/find_labyrinth_path")
+@app.get("/find_labyrinth_path", response_model=Path)
 async def find_labyrinth_path(start_location: int, end_location: int) -> Path:
     return {"path": find_path(start_location, end_location)}
